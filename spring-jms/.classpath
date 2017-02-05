@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="output" path="bin"/>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="src" path="src/main/resources"/>
+	<classpathentry kind="src" path="src/test/java"/>
+	<classpathentry kind="src" path="src/test/resources"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER" exported="true"/>
+	<classpathentry kind="src" path="/spring-core" exported="true"/>
+	<classpathentry kind="src" path="/spring-beans" exported="true"/>
+	<classpathentry kind="src" path="/spring-aop" exported="true"/>
+	<classpathentry kind="src" path="/spring-context" exported="true"/>
+	<classpathentry kind="src" path="/spring-tx" exported="true"/>
+	<classpathentry kind="src" path="/spring-oxm" exported="true"/>
+	<classpathentry sourcepath="C:/Users/14082455/.gradle/caches/artifacts-15/filestore/aopalliance/aopalliance/1.0/source/4a4b6d692e17846a9f3da036438a7ac491d3c814/aopalliance-1.0-sources.jar" kind="lib" path="C:/Users/14082455/.gradle/caches/artifacts-15/filestore/aopalliance/aopalliance/1.0/jar/235ba8b489512805ac13a8f9ea77a1ca5ebe3e8/aopalliance-1.0.jar" exported="true"/>
+	<classpathentry sourcepath="C:/Users/14082455/.gradle/caches/artifacts-15/filestore/junit/junit/4.11/source/28e0ad201304e4a4abf999ca0570b7cffc352c3c/junit-4.11-sources.jar" kind="lib" path="C:/Users/14082455/.gradle/caches/artifacts-15/filestore/junit/junit/4.11/jar/4e031bb61df09069aeb2bffb4019e7a5034a4ee0/junit-4.11.jar"/>
+	<classpathentry sourcepath="C:/Users/14082455/.gradle/caches/artifacts-15/filestore/org.hamcrest/hamcrest-all/1.3/source/47e033b7ab18c5dbd5fe29fc1bd5a40afe028818/hamcrest-all-1.3-sources.jar" kind="lib" path="C:/Users/14082455/.gradle/caches/artifacts-15/filestore/org.hamcrest/hamcrest-all/1.3/jar/63a21ebc981131004ad02e0434e799fd7f3a8d5a/hamcrest-all-1.3.jar"/>
+	<classpathentry sourcepath="C:/Users/14082455/.gradle/caches/artifacts-15/filestore/org.easymock/easymock/2.5.2/source/b3c483129178b7be895a81afe02c34044245a70e/easymock-2.5.2-sources.jar" kind="lib" path="C:/Users/14082455/.gradle/caches/artifacts-15/filestore/org.easymock/easymock/2.5.2/jar/e25783424f37ade86d387afbdbb7845a6782ef1e/easymock-2.5.2.jar"/>
+	<classpathentry sourcepath="C:/Users/14082455/.gradle/caches/artifacts-15/filestore/org.hamcrest/hamcrest-core/1.3/source/1dc37250fbc78e23a65a67fbbaf71d2e9cbc3c0b/hamcrest-core-1.3-sources.jar" kind="lib" path="C:/Users/14082455/.gradle/caches/artifacts-15/filestore/org.hamcrest/hamcrest-core/1.3/jar/42a25dc3219429f0e5d060061f71acb49bf010a0/hamcrest-core-1.3.jar"/>
+	<classpathentry sourcepath="C:/Users/14082455/.gradle/caches/artifacts-15/filestore/org.apache.geronimo.specs/geronimo-jms_1.1_spec/1.1/source/31d2c9592e899023123dcb3fd0fbb6b1d58905e5/geronimo-jms_1.1_spec-1.1-sources.jar" kind="lib" path="C:/Users/14082455/.gradle/caches/artifacts-15/filestore/org.apache.geronimo.specs/geronimo-jms_1.1_spec/1.1/jar/bbd68f90d445de37050b1e9fb9d7114e83757e73/geronimo-jms_1.1_spec-1.1.jar"/>
+	<classpathentry sourcepath="C:/Users/14082455/.gradle/caches/artifacts-15/filestore/org.codehaus.jackson/jackson-mapper-asl/1.4.2/source/7c7bf5af14342bcbd90962c897ea7cbea4cf9310/jackson-mapper-asl-1.4.2-sources.jar" kind="lib" path="C:/Users/14082455/.gradle/caches/artifacts-15/filestore/org.codehaus.jackson/jackson-mapper-asl/1.4.2/jar/5f3ba53c3998b6dece15d4b83d189de23a8d8ad8/jackson-mapper-asl-1.4.2.jar"/>
+	<classpathentry sourcepath="C:/Users/14082455/.gradle/caches/artifacts-15/filestore/org.apache.geronimo.specs/geronimo-jta_1.1_spec/1.1/source/1068f7bb97afc27b92be277a8c1a2c25e9a1196d/geronimo-jta_1.1_spec-1.1-sources.jar" kind="lib" path="C:/Users/14082455/.gradle/caches/artifacts-15/filestore/org.apache.geronimo.specs/geronimo-jta_1.1_spec/1.1/jar/fe8d9046737540d728e4b82cf26dcdd8bf4b0eb1/geronimo-jta_1.1_spec-1.1.jar"/>
+	<classpathentry sourcepath="C:/Users/14082455/.gradle/caches/artifacts-15/filestore/javax.resource/connector-api/1.5/source/a8f177930b0abd2422c6b9601c756d8c48278add/connector-api-1.5-sources.jar" kind="lib" path="C:/Users/14082455/.gradle/caches/artifacts-15/filestore/javax.resource/connector-api/1.5/jar/a5cee35dc703a9d9ea305cc3f4a2baa7c4919145/connector-api-1.5.jar"/>
+	<classpathentry sourcepath="C:/Users/14082455/.gradle/caches/artifacts-15/filestore/org.codehaus.jackson/jackson-core-asl/1.4.2/source/18fdabcffb76f0f7adc4e45231cd3f50d9fd8191/jackson-core-asl-1.4.2-sources.jar" kind="lib" path="C:/Users/14082455/.gradle/caches/artifacts-15/filestore/org.codehaus.jackson/jackson-core-asl/1.4.2/jar/bd7a893c5c575d20a36b98dc65f5a80c5609cc97/jackson-core-asl-1.4.2.jar"/>
+</classpath>

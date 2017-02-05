@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="output" path="bin"/>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="src" path="src/main/resources"/>
+	<classpathentry kind="src" path="src/test/java"/>
+	<classpathentry kind="src" path="src/test/resources"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER" exported="true"/>
+	<classpathentry kind="src" path="/spring-core" exported="true"/>
+	<classpathentry kind="src" path="/spring-beans" exported="true"/>
+	<classpathentry sourcepath="C:/Users/14082455/.gradle/caches/artifacts-15/filestore/aopalliance/aopalliance/1.0/source/4a4b6d692e17846a9f3da036438a7ac491d3c814/aopalliance-1.0-sources.jar" kind="lib" path="C:/Users/14082455/.gradle/caches/artifacts-15/filestore/aopalliance/aopalliance/1.0/jar/235ba8b489512805ac13a8f9ea77a1ca5ebe3e8/aopalliance-1.0.jar" exported="true"/>
+	<classpathentry sourcepath="C:/Users/14082455/.gradle/caches/artifacts-15/filestore/junit/junit/4.11/source/28e0ad201304e4a4abf999ca0570b7cffc352c3c/junit-4.11-sources.jar" kind="lib" path="C:/Users/14082455/.gradle/caches/artifacts-15/filestore/junit/junit/4.11/jar/4e031bb61df09069aeb2bffb4019e7a5034a4ee0/junit-4.11.jar"/>
+	<classpathentry sourcepath="C:/Users/14082455/.gradle/caches/artifacts-15/filestore/org.hamcrest/hamcrest-all/1.3/source/47e033b7ab18c5dbd5fe29fc1bd5a40afe028818/hamcrest-all-1.3-sources.jar" kind="lib" path="C:/Users/14082455/.gradle/caches/artifacts-15/filestore/org.hamcrest/hamcrest-all/1.3/jar/63a21ebc981131004ad02e0434e799fd7f3a8d5a/hamcrest-all-1.3.jar"/>
+	<classpathentry sourcepath="C:/Users/14082455/.gradle/caches/artifacts-15/filestore/org.easymock/easymock/2.5.2/source/b3c483129178b7be895a81afe02c34044245a70e/easymock-2.5.2-sources.jar" kind="lib" path="C:/Users/14082455/.gradle/caches/artifacts-15/filestore/org.easymock/easymock/2.5.2/jar/e25783424f37ade86d387afbdbb7845a6782ef1e/easymock-2.5.2.jar"/>
+	<classpathentry sourcepath="C:/Users/14082455/.gradle/caches/artifacts-15/filestore/org.hamcrest/hamcrest-core/1.3/source/1dc37250fbc78e23a65a67fbbaf71d2e9cbc3c0b/hamcrest-core-1.3-sources.jar" kind="lib" path="C:/Users/14082455/.gradle/caches/artifacts-15/filestore/org.hamcrest/hamcrest-core/1.3/jar/42a25dc3219429f0e5d060061f71acb49bf010a0/hamcrest-core-1.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/14082455/.gradle/caches/artifacts-15/filestore/com.jamonapi/jamon/2.4/jar/e2ad6f45c2ba72d8fa798b68a5f9b73c9f047756/jamon-2.4.jar"/>
+	<classpathentry sourcepath="C:/Users/14082455/.gradle/caches/artifacts-15/filestore/commons-pool/commons-pool/1.5.3/source/7c4d461b6574f056e1d4fc6daa16821382b53bef/commons-pool-1.5.3-sources.jar" kind="lib" path="C:/Users/14082455/.gradle/caches/artifacts-15/filestore/commons-pool/commons-pool/1.5.3/jar/7ad440d63c6eea5e79f1737e264810c76258d042/commons-pool-1.5.3.jar"/>
+	<classpathentry sourcepath="C:/Users/14082455/.gradle/caches/artifacts-15/filestore/org.aspectj/aspectjweaver/1.7.1/source/5bfa1ea3b5653119dcf22a0d675302e0e5a802b1/aspectjweaver-1.7.1-sources.jar" kind="lib" path="C:/Users/14082455/.gradle/caches/artifacts-15/filestore/org.aspectj/aspectjweaver/1.7.1/jar/cf8f3ca56739d3bf8a539362e48f180a31f83433/aspectjweaver-1.7.1.jar"/>
+	<classpathentry kind="lib" path="F:/learn/java/spring-framework-3.2.0.RELEASE/spring-core/build/libs/spring-cglib-repack-3.0.jar" exported="true"/>
+</classpath>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="output" path="bin"/>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="src" path="src/main/resources"/>
+	<classpathentry kind="src" path="src/test/java"/>
+	<classpathentry kind="src" path="src/test/resources"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER" exported="true"/>
+	<classpathentry kind="src" path="/spring-core" exported="true"/>
+	<classpathentry kind="src" path="/spring-test" exported="true"/>
+	<classpathentry kind="src" path="/spring-context-support" exported="true"/>
+	<classpathentry kind="src" path="/spring-beans" exported="true"/>
+	<classpathentry kind="src" path="/spring-aop" exported="true"/>
+	<classpathentry kind="src" path="/spring-context" exported="true"/>
+	<classpathentry kind="src" path="/spring-tx" exported="true"/>
+	<classpathentry kind="src" path="/spring-orm" exported="true"/>
+	<classpathentry sourcepath="C:/Users/14082455/.gradle/caches/artifacts-15/filestore/org.aspectj/aspectjweaver/1.7.1/source/5bfa1ea3b5653119dcf22a0d675302e0e5a802b1/aspectjweaver-1.7.1-sources.jar" kind="lib" path="C:/Users/14082455/.gradle/caches/artifacts-15/filestore/org.aspectj/aspectjweaver/1.7.1/jar/cf8f3ca56739d3bf8a539362e48f180a31f83433/aspectjweaver-1.7.1.jar" exported="true"/>
+	<classpathentry sourcepath="C:/Users/14082455/.gradle/caches/artifacts-15/filestore/junit/junit/4.11/source/28e0ad201304e4a4abf999ca0570b7cffc352c3c/junit-4.11-sources.jar" kind="lib" path="C:/Users/14082455/.gradle/caches/artifacts-15/filestore/junit/junit/4.11/jar/4e031bb61df09069aeb2bffb4019e7a5034a4ee0/junit-4.11.jar"/>
+	<classpathentry sourcepath="C:/Users/14082455/.gradle/caches/artifacts-15/filestore/org.hamcrest/hamcrest-all/1.3/source/47e033b7ab18c5dbd5fe29fc1bd5a40afe028818/hamcrest-all-1.3-sources.jar" kind="lib" path="C:/Users/14082455/.gradle/caches/artifacts-15/filestore/org.hamcrest/hamcrest-all/1.3/jar/63a21ebc981131004ad02e0434e799fd7f3a8d5a/hamcrest-all-1.3.jar"/>
+	<classpathentry sourcepath="C:/Users/14082455/.gradle/caches/artifacts-15/filestore/org.easymock/easymock/2.5.2/source/b3c483129178b7be895a81afe02c34044245a70e/easymock-2.5.2-sources.jar" kind="lib" path="C:/Users/14082455/.gradle/caches/artifacts-15/filestore/org.easymock/easymock/2.5.2/jar/e25783424f37ade86d387afbdbb7845a6782ef1e/easymock-2.5.2.jar"/>
+	<classpathentry sourcepath="C:/Users/14082455/.gradle/caches/artifacts-15/filestore/javax.mail/mail/1.4/source/fdd508f19a5075196138c94b341120e917c10e8a/mail-1.4-sources.jar" kind="lib" path="C:/Users/14082455/.gradle/caches/artifacts-15/filestore/javax.mail/mail/1.4/jar/1aa1579ae5ecd41920c4f355b0a9ef40b68315dd/mail-1.4.jar"/>
+	<classpathentry sourcepath="C:/Users/14082455/.gradle/caches/artifacts-15/filestore/org.hamcrest/hamcrest-core/1.3/source/1dc37250fbc78e23a65a67fbbaf71d2e9cbc3c0b/hamcrest-core-1.3-sources.jar" kind="lib" path="C:/Users/14082455/.gradle/caches/artifacts-15/filestore/org.hamcrest/hamcrest-core/1.3/jar/42a25dc3219429f0e5d060061f71acb49bf010a0/hamcrest-core-1.3.jar"/>
+	<classpathentry sourcepath="C:/Users/14082455/.gradle/caches/artifacts-15/filestore/javax.activation/activation/1.1/source/3697e9f67a2ed7ac5f589cff30f21173299440/activation-1.1-sources.jar" kind="lib" path="C:/Users/14082455/.gradle/caches/artifacts-15/filestore/javax.activation/activation/1.1/jar/e6cb541461c2834bdea3eb920f1884d1eb508b50/activation-1.1.jar"/>
+	<classpathentry sourcepath="C:/Users/14082455/.gradle/caches/artifacts-15/filestore/javax.persistence/persistence-api/1.0/source/2773a7910e8f0c7d59749dc4fcef2a4b94fcf85a/persistence-api-1.0-sources.jar" kind="lib" path="C:/Users/14082455/.gradle/caches/artifacts-15/filestore/javax.persistence/persistence-api/1.0/jar/5725f57873e05e068803e2bf9d5a8ea3740ffec5/persistence-api-1.0.jar"/>
+</classpath>
