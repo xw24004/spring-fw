@@ -38,6 +38,15 @@ import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
 /**
+ * <pre>
+ * <ul>
+ * 	  <li> AliasRegistry: 提供别名注册接口 </li>
+ *    <li> SimpleAliasRegistry：AliasRegistry 实现类 </li>
+ *    <li> SingletonBeanRegistry : 提供单列bean注册 </li>
+ *    <li> ObjectFactory ：这个接口通常用于封装一个通用的工厂，它只有一个方法getObject() ,
+ *         它调用getObject()方法返回一个新的实例，一些在每次调用的目标对象（原型） </li>
+ * </ul>
+ * </pre>
  * Generic registry for shared bean instances, implementing the
  * {@link org.springframework.beans.factory.config.SingletonBeanRegistry}.
  * Allows for registering singleton instances that should be shared
@@ -80,6 +89,8 @@ public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements
 	/** Logger available to subclasses */
 	protected final Log logger = LogFactory.getLog(getClass());
 
+	
+	/****************************************三个主要的缓存********************************************/
 	/** 用于保存BeanName和创建bean实例之间的关系<p>
 	 * Cache of singleton objects: bean name --> bean instance */
 	private final Map<String, Object> singletonObjects = new ConcurrentHashMap<String, Object>(64);
@@ -88,43 +99,53 @@ public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements
 	 * Cache of singleton factories: bean name --> ObjectFactory */
 	private final Map<String, ObjectFactory> singletonFactories = new HashMap<String, ObjectFactory>(16);
 
-	/** 也是保存BeanName和创建bean实例之间的关系，与singletonObjects不同的是，当一个实例在创建过程中也
+	/** 也是保存BeanName和创建bean实例之间的关系，与<code>singletonObjects</code>不同的是，当一个实例在创建过程中也
 	 *  可以通过getBean方法获取到了，目的是用来检测循环引用。<p> 
 	 * Cache of early singleton objects: bean name --> bean instance */
 	private final Map<String, Object> earlySingletonObjects = new HashMap<String, Object>(16);
-
-	/** Set of registered singletons, containing the bean names in registration order */
+	
+	/*****************************************其他辅助缓存*******************************************/
+	/**就是一个单注册表，为了快速获取信息使用</br>
+	 * Set of registered singletons, containing the bean names in registration order */
 	private final Set<String> registeredSingletons = new LinkedHashSet<String>(64);
 
-	/** Names of beans that are currently in creation (using a ConcurrentHashMap as a Set) */
+	/** 目前正在创建中的单例bean的名称的集合</br> 
+	 * Names of beans that are currently in creation (using a ConcurrentHashMap as a Set) */
 	private final Map<String, Boolean> singletonsCurrentlyInCreation = new ConcurrentHashMap<String, Boolean>(16);
 
-	/** Names of beans currently excluded from in creation checks (using a ConcurrentHashMap as a Set) */
+	/** 存放异常出现的相关的原因的集合</br> 
+	 * Names of beans currently excluded from in creation checks (using a ConcurrentHashMap as a Set) */
 	private final Map<String, Boolean> inCreationCheckExclusions = new ConcurrentHashMap<String, Boolean>(16);
 
-	/** List of suppressed Exceptions, available for associating related causes */
+	/** 标志，指示我们目前是否在销毁单例中</br> 
+	 * List of suppressed Exceptions, available for associating related causes */
 	private Set<Exception> suppressedExceptions;
 
-	/** Flag that indicates whether we're currently within destroySingletons */
+	/** 标志，指示我们目前是否在销毁单例中</br> 
+	 * Flag that indicates whether we're currently within destroySingletons */
 	private boolean singletonsCurrentlyInDestruction = false;
 
-	/** Disposable bean instances: bean name --> disposable instance */
+	/**  存放一次性bean的缓存</br>
+	 * Disposable bean instances: bean name --> disposable instance */
 	private final Map<String, Object> disposableBeans = new LinkedHashMap<String, Object>();
 
-	/** Map between containing bean names: bean name --> Set of bean names that the bean contains */
+	/**外部bean与被包含在外部bean的所有内部bean集合包含关系的缓存</br> 
+	 * Map between containing bean names: bean name --> Set of bean names that the bean contains */
 	private final Map<String, Set<String>> containedBeanMap = new ConcurrentHashMap<String, Set<String>>(16);
 
-	/** Map between dependent bean names: bean name --> Set of dependent bean names */
+	/** 指定bean与依赖指定bean的所有bean的依赖关系的缓存</br> 
+	 * Map between dependent bean names: bean name --> Set of dependent bean names */
 	private final Map<String, Set<String>> dependentBeanMap = new ConcurrentHashMap<String, Set<String>>(64);
 
-	/** Map between depending bean names: bean name --> Set of bean names for the bean's dependencies */
+	/**指定bean与创建这个bean所需要依赖的所有bean的依赖关系的缓存</br> 
+	 * Map between depending bean names: bean name --> Set of bean names for the bean's dependencies */
 	private final Map<String, Set<String>> dependenciesForBeanMap = new ConcurrentHashMap<String, Set<String>>(64);
 
 
 	public void registerSingleton(String beanName, Object singletonObject) throws IllegalStateException {
 		Assert.notNull(beanName, "'beanName' must not be null");
 		synchronized (this.singletonObjects) {
-			Object oldObject = this.singletonObjects.get(beanName);
+			Object oldObject = this.singletonObjects.get(beanName);//如果singletonObjects缓存找到有指定名称为beanName的对象，则表示该名称已被占用
 			if (oldObject != null) {
 				throw new IllegalStateException("Could not register object [" + singletonObject +
 						"] under bean name '" + beanName + "': there is already object [" + oldObject + "] bound");
@@ -172,13 +193,17 @@ public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements
 	}
 
 	/**
-	 * Return the (raw) singleton object registered under the given name.
-	 * <p>Checks already instantiated singletons and also allows for an early
-	 * reference to a currently created singleton (resolving a circular reference).
-	 * <p>单例在spring的同一个容器只会被创建一次，后续再获取bean直接从单例缓存中获取，当然，这里也只是
+	 * <pre>
+	 * 单例在spring的同一个容器只会被创建一次，后续再获取bean直接从单例缓存中获取，当然，这里也只是
 	 * 尝试加载，首先尝试从缓存中加载(this.singletonObjects)，然后再尝试从（this.singletonFactories）中加载。
 	 * 因为在创建单例bean的时候会存在依赖注入的情况，而在创建依赖的时候为了避免循环依赖，spring创建bean的原则是不等bean创建
 	 * 完成就会将创建bean的ObjectFactory提早曝光加入缓存，一旦下一个bean创建时需要依赖上一个bean，则直接使用ObjectFactory。
+	 * <p>
+	 * </pre> 
+	 * 
+	 * Return the (raw) singleton object registered under the given name.
+	 * <p>Checks already instantiated singletons and also allows for an early
+	 * reference to a currently created singleton (resolving a circular reference).
 	 * 
 	 * @param beanName the name of the bean to look for
 	 * @param allowEarlyReference whether early references should be created or not，早期依赖？
