@@ -31,7 +31,7 @@ import org.springframework.util.StringValueResolver;
 
 /**
  * 这是一个重要的接口增加了IOC容器的可定制行，它定义了设置类装载器、熟悉编辑器、
- * 容器初始化后置处理等方法。
+ * 容器初始化后置处理等方法。提供了Factory各种配置。
  * <p>
  * Configuration interface to be implemented by most bean factories. Provides
  * facilities to configure a bean factory, in addition to the bean factory

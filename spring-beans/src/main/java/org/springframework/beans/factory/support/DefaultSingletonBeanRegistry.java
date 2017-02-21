@@ -38,6 +38,7 @@ import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
 /**
+ * 对单例注册及获取的实现
  * <pre>
  * <ul>
  * 	  <li> AliasRegistry: 提供别名注册接口 </li>

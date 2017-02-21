@@ -60,6 +60,8 @@ import org.springframework.beans.factory.BeanFactory;
 public interface AutowireCapableBeanFactory extends BeanFactory {
 
 	/**
+	 * 提供bean的创建、自动
+	 * <p>
 	 * 1.在应用中，我们常常使用
 	 * <ref>标签为JavaBean注入它依赖的对象,同时也Spring为我们提供了一个自动装配的机制，在定义Bean时，
 	 * <bean>标签有一个autowire属性，我们可以通过指定它来让容器为受管JavaBean自动注入依赖对象。

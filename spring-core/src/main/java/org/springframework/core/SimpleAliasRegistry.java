@@ -31,13 +31,13 @@ import org.springframework.util.StringValueResolver;
  * Serves as base class for
  * {@link org.springframework.beans.factory.support.BeanDefinitionRegistry}
  * implementations.
- *
+ * 主要使用map作为对alias的缓存，并对接口AliasRegistry
  * @author Juergen Hoeller
  * @since 2.5.2
  */
 public class SimpleAliasRegistry implements AliasRegistry {
 
-	/** Map from alias to canonical name */
+	/** Map from alias to canonical name ,name和别名是一对多的关系，<alias,name>*/
 	private final Map<String, String> aliasMap = new ConcurrentHashMap<String, String>(16);
 
 
@@ -83,6 +83,7 @@ public class SimpleAliasRegistry implements AliasRegistry {
 
 	public String[] getAliases(String name) {
 		List<String> result = new ArrayList<String>();
+		// 防止在遍历的过程中参数改变？？？
 		synchronized (this.aliasMap) {
 			retrieveAliases(name, result);
 		}
@@ -176,5 +177,18 @@ public class SimpleAliasRegistry implements AliasRegistry {
 					name + "' is a direct or indirect alias for '" + alias + "' already");
 		}
 	}
+	
+	/**
+	 * 测试例子中出现了循环依赖，
+	 * 设置b的别名a时，出现了
+	 */
+	public static void main(String[] args) {
+	    SimpleAliasRegistry aa = new SimpleAliasRegistry();
+	    aa.registerAlias("c", "b"); //b->c
+	    aa.registerAlias("a", "c"); //c->a
+	    aa.registerAlias("b", "a"); //a->b
+	    
+	    
+    }
 
 }
