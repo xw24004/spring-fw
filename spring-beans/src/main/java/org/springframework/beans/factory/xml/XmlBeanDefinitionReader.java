@@ -255,6 +255,7 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
 	protected EntityResolver getEntityResolver() {
 		if (this.entityResolver == null) {
 			// Determine default EntityResolver to use.
+		    // TODO 使用ResourceLoader将资源文件转换为对应的Resource文件
 			ResourceLoader resourceLoader = getResourceLoader();
 			if (resourceLoader != null) {
 				// 默认走到这里
@@ -295,6 +296,8 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
 
 
 	/**
+	 * TODO
+	 * 程序入口函数
 	 * Load bean definitions from the specified XML file.
 	 * @param resource the resource descriptor for the XML file
 	 * @return the number of bean definitions found
@@ -393,9 +396,10 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
 			// 2.加载xml获取Document信息
 			// getEntityResolver() 这个方法有点意思。。。
 			// 此处的this.documentLoader.loadDocument使用的为SAX方式,重点在这个地方
+			// 通过Document4Loader对Resource文件进行转换，将Resource文件转换为Document文件
 			Document doc = this.documentLoader.loadDocument(
 					inputSource, getEntityResolver(), this.errorHandler, validationMode, isNamespaceAware());
-			// 3.根据Document和resource，返回Document中注册bean信息，重头戏在这边。
+			// TODO 3.根据Document和resource，返回Document中注册bean信息，重头戏在这边。
 			return registerBeanDefinitions(doc, resource);
 		}
 		catch (BeanDefinitionStoreException ex) {

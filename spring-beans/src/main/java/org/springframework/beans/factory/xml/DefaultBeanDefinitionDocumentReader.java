@@ -334,6 +334,8 @@ public class DefaultBeanDefinitionDocumentReader implements BeanDefinitionDocume
 		// ※※※※
 		BeanDefinitionHolder bdHolder = delegate.parseBeanDefinitionElement(ele);
 		
+		// 如果bdHolder不为空的情况下，若存在默认标签的子节点下再有自定义属性，还需要再次对自定义的标签
+		// 进行解析
 		if (bdHolder != null) {
 			// 2.这里对bdHolder又进行了一次处理,decorate(装饰、修饰)
 			// 解析默认标签中的自定义标签
