@@ -24,7 +24,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.util.Assert;
 import org.springframework.util.ObjectUtils;
 
-/**
+/** 
  * Holder that combines a {@link org.springframework.core.io.Resource}
  * with a specific encoding to be used for reading from the resource.
  *
@@ -37,6 +37,8 @@ import org.springframework.util.ObjectUtils;
  */
 public class EncodedResource {
 
+    // 一般使用classpathResource
+    
 	private final Resource resource;
 
 	private final String encoding;
