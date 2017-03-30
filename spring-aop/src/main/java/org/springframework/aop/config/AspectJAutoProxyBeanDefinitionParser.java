@@ -38,6 +38,7 @@ import org.springframework.beans.factory.xml.ParserContext;
 class AspectJAutoProxyBeanDefinitionParser implements BeanDefinitionParser {
 
 	public BeanDefinition parse(Element element, ParserContext parserContext) {
+	    // 这个地方是我们关心的，也是主要类的实现
 		AopNamespaceUtils.registerAspectJAnnotationAutoProxyCreatorIfNecessary(parserContext, element);
 		extendBeanDefinition(element, parserContext);
 		return null;
