@@ -73,6 +73,13 @@ public class BeanFactoryAspectJAdvisorsBuilder {
 
 
 	/**
+	 * <pre>
+	 * 主要步骤如下：
+	 * 1.获取所有的beanName，这一步骤中所有的BeanFactory中注册的Bean都会被提取出来；
+	 * 2.遍历所有的Bean，找出声明Aspect注解的类，进行进一步的处理；
+	 * 3.对标记Aspect注解的类进行增强器的提取；
+	 * 4.将提取的结果加入缓存。
+	 * </pre>
 	 * Look for AspectJ-annotated aspect beans in the current bean factory,
 	 * and return to a list of Spring AOP Advisors representing them.
 	 * <p>Creates a Spring Advisor for each AspectJ advice method.
@@ -87,9 +94,11 @@ public class BeanFactoryAspectJAdvisorsBuilder {
 			if (aspectNames == null) {
 				List<Advisor> advisors = new LinkedList<Advisor>();
 				aspectNames = new LinkedList<String>();
+				// 获取所有的beanNames
 				String[] beanNames =
 						BeanFactoryUtils.beanNamesForTypeIncludingAncestors(this.beanFactory, Object.class, true, false);
 				for (String beanName : beanNames) {
+					// 不合法的Bean则略过，由子类定义规则，默认返回true。
 					if (!isEligibleBean(beanName)) {
 						continue;
 					}
@@ -100,12 +109,14 @@ public class BeanFactoryAspectJAdvisorsBuilder {
 					if (beanType == null) {
 						continue;
 					}
+					// 如果存在Aspect注解
 					if (this.advisorFactory.isAspect(beanType)) {
 						aspectNames.add(beanName);
 						AspectMetadata amd = new AspectMetadata(beanType, beanName);
 						if (amd.getAjType().getPerClause().getKind() == PerClauseKind.SINGLETON) {
 							MetadataAwareAspectInstanceFactory factory =
 									new BeanFactoryAspectInstanceFactory(this.beanFactory, beanName);
+							// TODO 解析注解AspectJ注解中的方法
 							List<Advisor> classAdvisors = this.advisorFactory.getAdvisors(factory);
 							if (this.beanFactory.isSingleton(beanName)) {
 								this.advisorsCache.put(beanName, classAdvisors);
@@ -136,6 +147,8 @@ public class BeanFactoryAspectJAdvisorsBuilder {
 		if (aspectNames.isEmpty()) {
 			return Collections.EMPTY_LIST;
 		}
+		
+		// 记录在缓存中
 		List<Advisor> advisors = new LinkedList<Advisor>();
 		for (String aspectName : aspectNames) {
 			List<Advisor> cachedAdvisors = this.advisorsCache.get(aspectName);

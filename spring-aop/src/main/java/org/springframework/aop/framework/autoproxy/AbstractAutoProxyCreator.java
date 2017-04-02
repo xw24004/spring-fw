@@ -353,6 +353,7 @@ public abstract class AbstractAutoProxyCreator extends ProxyConfig
 		}
 
 		// Create proxy if we have advice.
+		// 获取增强方法的实现逻辑
 		Object[] specificInterceptors = getAdvicesAndAdvisorsForBean(bean.getClass(), beanName, null);
 		if (specificInterceptors != DO_NOT_PROXY) {
 			this.advisedBeans.put(cacheKey, Boolean.TRUE);

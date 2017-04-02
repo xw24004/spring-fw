@@ -42,11 +42,15 @@ import org.springframework.beans.factory.xml.ParserContext;
 public abstract class AopNamespaceUtils {
 
 	/**
+	 * proxy-target-class属性值决定是基于接口的还是基于类的代理被创建。如果proxy-target-class 属性值被设置为true，
+	 * 那么基于类的代理将起作用（这时需要cglib库）。
+	 * 如果proxy-target-class属值被设置为false或者这个属性被省略，那么标准的JDK 基于接口的代理将起作用
 	 * The <code>proxy-target-class</code> attribute as found on AOP-related XML tags.
 	 */
 	public static final String PROXY_TARGET_CLASS_ATTRIBUTE = "proxy-target-class";
 
 	/**
+	 * expose-proxy 当前代理是否为可暴露状态，值是"ture"，则为可访问？？？
 	 * The <code>expose-proxy</code> attribute as found on AOP-related XML tags.
 	 */
 	private static final String EXPOSE_PROXY_ATTRIBUTE = "expose-proxy";
@@ -106,10 +110,12 @@ public abstract class AopNamespaceUtils {
 
 	private static void useClassProxyingIfNecessary(BeanDefinitionRegistry registry, Element sourceElement) {
 		if (sourceElement != null) {
+			// proxy-target-class的处理
 			boolean proxyTargetClass = Boolean.valueOf(sourceElement.getAttribute(PROXY_TARGET_CLASS_ATTRIBUTE));
 			if (proxyTargetClass) {
 				AopConfigUtils.forceAutoProxyCreatorToUseClassProxying(registry);
 			}
+			// expose-proxy的处理
 			boolean exposeProxy = Boolean.valueOf(sourceElement.getAttribute(EXPOSE_PROXY_ATTRIBUTE));
 			if (exposeProxy) {
 				AopConfigUtils.forceAutoProxyCreatorToExposeProxy(registry);

@@ -96,7 +96,9 @@ public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements
 	 * Cache of singleton objects: bean name --> bean instance */
 	private final Map<String, Object> singletonObjects = new ConcurrentHashMap<String, Object>(64);
 
-	/** 用于保存BeanName和创建bean实例工厂之间的关系<p> 
+	/** 用于保存BeanName和创建bean实例工厂之间的关系
+	 *  用于存储在spring内部所使用的beanName->对象工厂的引用，一旦最终对象被创建(通过objectFactory.getObject())，此引用信息将删除
+	 * <p> 
 	 * Cache of singleton factories: bean name --> ObjectFactory */
 	private final Map<String, ObjectFactory> singletonFactories = new HashMap<String, ObjectFactory>(16);
 

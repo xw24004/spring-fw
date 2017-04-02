@@ -19,6 +19,11 @@ package org.springframework.beans.factory;
 import org.springframework.beans.BeansException;
 
 /**
+ * 一个访问Spring Bean容器的根接口
+ * 这个是spring容器的基本客户端
+ * 进一步的接口可以看ListableBeanFactory和ConfigurableBeanFactory来用于特定的用途
+ * <p>
+ * 
  * The root interface for accessing a Spring bean container.
  * This is the basic client view of a bean container;
  * further interfaces such as {@link ListableBeanFactory} and
